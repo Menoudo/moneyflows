@@ -1,27 +1,33 @@
 import os
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
-class Config(object):
+class AppConfig(object):
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = 'this-really-needs-to-be-changed1'
 
 
-class ProductionConfig(Config):
+class ProductionConfig(AppConfig):
     DEBUG = False
 
 
-class StagingConfig(Config):
+class StagingConfig(AppConfig):
     DEVELOPMENT = True
     DEBUG = True
 
 
-class DevelopmentConfig(Config):
+class DevelopmentConfig(AppConfig):
     DEVELOPMENT = True
     DEBUG = True
 
 
-class TestingConfig(Config):
+class TestingConfig(AppConfig):
     TESTING = True
+
+
+class BotConfig(object):
+    TELEGRAM_TOKEN = ''
+    ACESS_KEY = ''

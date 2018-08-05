@@ -1,7 +1,9 @@
 # Import the database object (db) from the main application module
 # We will define this inside /app/__init__.py in the next sections.
-from app import db
 from datetime import datetime
+
+from app import db
+
 
 class RawMessages(db.Model):
     __tablename__ = 'messages'
@@ -11,8 +13,7 @@ class RawMessages(db.Model):
     parse = db.Column(db.Boolean)
 
     def __init__(self, json):
-        self.title = title
-        self.json = text
+        self.json = json
         self.parse = False
         self.pub_date = datetime.utcnow()
 
